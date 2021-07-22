@@ -8,15 +8,23 @@
     <script src="../node_modules/lit/polyfill-support.js"></script>
     <script type="module" src="../my-element.js"></script>
     <style>
+      body{
+        background: #e8e8e8;
+      }
       p {
         border: solid 1px blue;
         padding: 8px;
+        margin: 24px;
+      }
+      equis-card {
+        width: 600px;
+        margin: 50px auto;
       }
     </style>
   </head>
   <body>
-    <my-element>
+    <equis-card>
       <p>This is child content</p>
-    </my-element>
+    </equis-card>
   </body>
 </html>
