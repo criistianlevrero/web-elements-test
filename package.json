@@ -22,7 +22,7 @@
     "docs:assets": "cp node_modules/prismjs/themes/prism-okaidia.css docs/",
     "docs:serve": "wds --root-dir=docs --node-resolve --watch",
     "analyze": "wca analyze \"src/**/*.ts\" --outFile custom-elements.json",
-    "serve": "wds --watch",
+    "serve": "wds --watch -o",
     "test": "wtr",
     "test:watch": "npm run test -- --watch",
     "checksize": "rollup -c ; cat my-element.bundled.js | gzip -9 | wc -c ; rm my-element.bundled.js"
@@ -56,6 +56,7 @@
     "@web/test-runner-mocha": "^0.3.5",
     "@web/test-runner-playwright": "^0.8.4",
     "@webcomponents/webcomponentsjs": "^2.5.0",
+    "@zumo/foundations": "^1.0.13",
     "deepmerge": "^4.2.2",
     "eslint": "^6.8.0",
     "lit-analyzer": "^1.1.10",
