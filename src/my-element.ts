@@ -6,6 +6,7 @@
 
 import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import {classMap} from 'lit/directives/class-map.js';
 
 /**
  * An example element.
@@ -13,14 +14,20 @@ import {customElement, property} from 'lit/decorators.js';
  * @slot - This element has a slot
  * @csspart button - The button
  */
-@customElement('my-element')
+@customElement('equis-card')
 export class MyElement extends LitElement {
   static styles = css`
     :host {
       display: block;
-      border: solid 1px gray;
-      padding: 16px;
-      max-width: 800px;
+    }
+    .card-container {
+      background-color: #ffffff;
+      border: 1px solid rgba(232, 232, 232, 0.7);
+      border-radius: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      position: relative;
+      transition: all 200ms ease-in-out;
+      width: 100%;
     }
   `;
 
@@ -30,33 +37,18 @@ export class MyElement extends LitElement {
   @property()
   name = 'World';
 
-  /**
-   * The number of times the button has been clicked.
-   */
-  @property({type: Number})
-  count = 0;
-
   render() {
     return html`
-      <h1>Hello, ${this.name}!</h1>
-      <button @click=${this._onClick} part="button">
-        Click Count: ${this.count}
-      </button>
-      <slot></slot>
+      <div class=${classMap({'card-container':true, alert:true,info:true})}>
+        <slot></slot>
+      </div>
     `;
   }
 
-  private _onClick() {
-    this.count++;
-  }
-
-  foo(): string {
-    return 'foo';
-  }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'my-element': MyElement;
+    'equis-card': MyElement;
   }
 }

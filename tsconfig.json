@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "es2019",
     "module": "es2020",
     "lib": ["es2020", "DOM", "DOM.Iterable"],
@@ -25,7 +26,12 @@
         "name": "ts-lit-plugin",
         "strict": true
       }
-    ]
+    ],
+    "paths": {
+      "@zumo/foundations/*": [
+        "node_modules/@zumo/foundations"
+      ]
+    }
   },
   "include": ["src/**/*.ts"],
   "exclude": []
